@@ -4,6 +4,7 @@
 library nav_menu;
 
 import 'dart:html';
+import 'package:hybrid_dart_test/router.dart';
 
 bool _menuOpen = false;
 
@@ -46,14 +47,15 @@ initNavMenu() {
         if (event.target.nodeName == 'A' || event.target.nodeName == 'LI') {
             closeMenu(event);
         }
-//        if(event.target is AnchorElement){
-//            window.location.href = (event.target as AnchorElement).href;
-//        }
+        if(event.target is AnchorElement){
+            var href = (event.target as AnchorElement).getAttribute("href");
+            router.gotoUrl(href);
+        }
     });
 
-//    document.body
-//        ..onTouchStart.listen((evt){
-//            evt.stopPropagation();
-//            evt.preventDefault();
-//    });
+    document.body
+        ..onTouchStart.listen((evt){
+            evt.stopPropagation();
+            evt.preventDefault();
+    });
 }

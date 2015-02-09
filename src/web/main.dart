@@ -6,28 +6,11 @@ import 'dart:html';
 import 'package:hybrid_dart_test/nav_menu.dart';
 import 'package:hybrid_dart_test/reverser.dart';
 import 'package:hybrid_dart_test/device_init.dart';
-import 'package:route_hierarchical/client.dart';
+import 'package:hybrid_dart_test/router.dart';
 
 void main() {
   initNavMenu();
   initReverser();
-  initializeDevice();
-
-  // Webapps need routing to listen for changes to the URL.
-  var router = new Router();
-  router.root
-    ..addRoute(name: 'about', path: '/about', enter: showAbout)
-    ..addRoute(name: 'home', defaultRoute: true, path: '/', enter: showHome);
-  router.listen();
-}
-
-void showAbout(RouteEvent e) {
-  // Extremely simple and non-scalable way to show different views.
-  querySelector('#home').style.display = 'none';
-  querySelector('#about').style.display = '';
-}
-
-void showHome(RouteEvent e) {
-  querySelector('#home').style.display = '';
-  querySelector('#about').style.display = 'none';
+  initDevice();
+  initRoutes();
 }

@@ -4,7 +4,7 @@ import 'package:rikulo_gap/device.dart';
 
 
 
-void initializeDevice() {
+void initDevice() {
     var initOutput = html.querySelector("#inialize-output")
         ..text = "initializing";
     Device.init()
