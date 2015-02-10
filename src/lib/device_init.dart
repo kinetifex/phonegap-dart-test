@@ -10,9 +10,10 @@ void initDevice() {
     Device.init()
     ..then((device) {
         initOutput.text = "success";
-        var listeningElement = html.querySelector(".listening")
+        var parentElement = html.querySelector("#deviceready-dart");
+        var listeningElement = parentElement.querySelector(".listening")
             ..setAttribute('style', 'display:none;');
-        var receivedElement = html.querySelector(".received")
+        var receivedElement = parentElement.querySelector(".received")
             ..setAttribute('style', 'display:block;');
     })
     ..catchError((e){

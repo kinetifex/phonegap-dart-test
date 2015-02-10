@@ -55,6 +55,12 @@ initNavMenu() {
 
     document.body
         ..onTouchStart.listen((evt){
+
+            /// If touch target is a input element, set it to be the focus
+            if (evt.target is InputElement || evt.target is TextAreaElement) {
+                (evt.target as HtmlElement).focus();
+            }
+
             evt.stopPropagation();
             evt.preventDefault();
     });

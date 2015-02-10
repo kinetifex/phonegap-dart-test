@@ -84,15 +84,28 @@
       </p>
     </div>
 
-    <div id="deviceready" class="blink">
+      <h3>Dart</h3>
+    <div id="deviceready-dart" class="blink">
         <h3 id="inialize-output">none</h3>
-        <p class="event listening">Connecting to Device!</p>
-        <p class="event received">Device is Ready!</p>
+        <p class="dart event listening">Connecting to Device!</p>
+        <p class="dart event received">Device is Ready!</p>
     </div>
+
+      <h3>JS</h3>
+      <div id="deviceready" class="blink">
+          <p class="event listening">Connecting to Device</p>
+          <p class="event received">Device is Ready</p>
+      </div>
+
   </main>
 
   <script type="text/javascript" src="cordova.js"></script>
   <script type="application/dart" src="main.dart"></script>
   <script data-pub-inline src="packages/browser/dart.js"></script>
+
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+      app.initialize();
+  </script>
 </body>
 </html>
